@@ -9,6 +9,7 @@ public class Suzy {
 
 		if (stringSoFar.length() == targetLength) { //If the permutation is as long as the original string (IE, we've used all the letters), output the string.
 			System.out.println("Permutation found: "+stringSoFar);
+			Letters.iteratePCount();
 		}else {	//Otherwise, go thru each letter in the input, remove it, append to stringSoFar and recurse. 
 			char currentChar;
 			
@@ -17,8 +18,8 @@ public class Suzy {
 				String subHistory = (stringSoFar+currentChar); //Append that character to our output string
 				StringBuilder subStringBuilder = new StringBuilder(input.toString()); // Create a copy of the input string without the copied letter
 				subStringBuilder.deleteCharAt(i);
-				//dent(subStringBuilder, subHistory, generation, targetLength); //And recur. 
-				System.out.println(i+": Current Char is: "+currentChar+", Remaining characters are: "+subStringBuilder.toString());
+				dent(subStringBuilder, subHistory, generation, targetLength); //And recur. 
+				//System.out.println(i+": Current Char is: "+currentChar+", Remaining characters are: "+subStringBuilder.toString());
 			}
 		}
 
