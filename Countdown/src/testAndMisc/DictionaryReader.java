@@ -12,10 +12,17 @@ public class DictionaryReader {
 		// TODO Auto-generated method stub
 		
 		 
-		try (Scanner in = new Scanner(new File(".\\bin\\testAndMisc\\original_dictionary_file.txt"))){
+		try (Scanner in = new Scanner(new File(".\\bin\\testAndMisc\\original_dictionary_file.txt"));){
+			int i=0;
+			while (in.hasNext() & i<20) {
 			String line = in.nextLine();
+			if(line.length()<10) {
+				System.out.println(line.length()+": "+line);	
+			}
 			
-			System.out.println(line.length()+": "+line);
+			i++;
+			}
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
