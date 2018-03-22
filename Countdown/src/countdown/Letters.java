@@ -1,7 +1,11 @@
 package countdown;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
+import testAndMisc.DictionaryReader;
 
 public class Letters {
 
@@ -22,9 +26,13 @@ public class Letters {
 		String rawInput;
 		StringBuilder input = new StringBuilder();
 
+		//////////////////////////////////////////// 			Taking the User Input 				////////////////////////////////////////////
+		
 		System.out.println("Please type in the letters");
 		
-		rawInput = scn.next();
+		rawInput = scn.next(); //should change this so it filter out spaces
+		
+		//////////////////////////////////////////// 	Alphabetically Sorting the User Input  		////////////////////////////////////////////
 		
 		System.out.println("The input is:"+rawInput);
 		
@@ -38,6 +46,21 @@ public class Letters {
 		
 		System.out.println("The sorted input is: " + input.toString());
 		System.out.println();
+				
+		////////////////////////////////////////////	Recursively Finding Permutations			////////////////////////////////////////////
+		
+		try (BufferedWriter br = new BufferedWriter(new FileWriter("PermutationList.txt"))) {
+			
+			Suzy suzy = new Suzy();
+			suzy.dent(input, "", 0, input.length(),br);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		//////////////////////////////////////////// 	Checking the Number of Permutations Found	////////////////////////////////////////////
 		
 		int arrayLength = input.length();
 		int uniqueCombos = 1;
@@ -51,10 +74,6 @@ public class Letters {
 		// This code calculates n!, where n is the length of the input string. There are n! unique permutations of letters, so comparing the number of permutations the code produces
 		// to n! can confirm whether it is finding each unique combination. 
 		
-		
-		Suzy suzy = new Suzy();
-		suzy.dent(input, "", 0, input.length());
-		
 		System.out.printf("\nThe number of permutations calculated is %d\n", pCount);
 		System.out.printf("The number of solutions found is %d\n", wCount);
 		if (pCount == uniqueCombos) {
@@ -62,6 +81,8 @@ public class Letters {
 		} else {
 			System.out.println("The permutations calculated does not equal n! It doesn't work properly!");
 		}
+		
+		////////////////////////////////////////////	Comparing Permutation File to Dictionary File	//////////////////////////////////////////// 	
 		
 	}
 
