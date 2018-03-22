@@ -11,7 +11,7 @@ public class Suzy {
 
 
 		if (stringSoFar.length() == targetLength) { //If the output string is as long as the original string (IE, we've used all the letters), write to file.
-			System.out.println("Permutation found: "+stringSoFar);
+			//System.out.println("Permutation found: "+stringSoFar);
 			br.write(stringSoFar);
 			br.newLine();
 			Letters.iteratePCount();

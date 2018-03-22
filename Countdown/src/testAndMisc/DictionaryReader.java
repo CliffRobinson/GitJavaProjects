@@ -22,7 +22,7 @@ public class DictionaryReader {
 	}
 
 	public static String[] produceArray() {
-		try (Scanner in = new Scanner(new File(/*".\\bin\\testAndMisc\\original_dictionary_file.txt"*/".\\bin\\testAndMisc\\truncated_dictionary_file.txt"))){
+		try (Scanner in = new Scanner(new File(/*"./bin/testAndMisc/original_dictionary_file.txt"*/".\\bin\\testAndMisc\\truncated_dictionary_file.txt"))){
 			int i=0;
 			String[] stringArray = new String[36]; 
 			while (in.hasNext() /*& i<20*/) {
